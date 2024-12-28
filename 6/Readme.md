@@ -3,6 +3,8 @@
 ## 1. Affected version
 V15.03.05.19
 
+Firmware download website: https://www.tenda.com.cn/download/detail-2610.html
+
 ## 2. Vulnerability details
 
 A stack overflow vulnerability exists in the formSetClientState function of the Tenda AC18 V15.03.05.19 firmware. The v17 variable retrieves the limitSpeedUp parameter from a POST request without adequate input validation.
