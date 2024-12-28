@@ -3,6 +3,8 @@
 ## 1. Affected version
 V15.03.05.19
 
+Firmware download website: https://www.tenda.com.cn/download/detail-2610.html
+
 ## 2. Vulnerability details
 
 
